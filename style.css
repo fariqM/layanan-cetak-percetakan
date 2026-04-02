@@ -1,0 +1,361 @@
+/* =========================================================
+   0. ROOT VARIABLES (PALET WARNA & UKURAN GLOBAL)
+========================================================= */
+:root {
+    --primary-color: #0056b3;
+    --primary-hover: #004494;
+    --accent-color: #f1c40f;
+    --success-color: #28a745;
+    --success-hover: #218838;
+    --danger-color: #dc3545;
+    --danger-hover: #c82333;
+    --warning-color: #ffc107;
+    --warning-hover: #e0a800;
+    --info-color: #17a2b8;
+    --info-hover: #138496;
+    --purple-color: #6f42c1;
+    --purple-hover: #5a32a3;
+    --bg-body: #f4f6f9;
+    --text-main: #333333;
+    --text-muted: #6c757d;
+    --border-color: #dee2e6;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* =========================================================
+   1. GLOBAL & TYPOGRAPHY
+========================================================= */
+body { 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    padding: 20px; 
+    color: var(--text-main); 
+    background-color: var(--bg-body); 
+    margin: 0; 
+}
+body.landing-page { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh; 
+    padding: 0; 
+}
+
+.container { 
+    max-width: 1150px; 
+    margin: 0 auto; 
+    background: white; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: var(--shadow-md); 
+}
+h2 { 
+    border-bottom: 2px solid var(--primary-color); 
+    padding-bottom: 10px; 
+    margin-top: 0; 
+    color: #003366; 
+}
+
+/* =========================================================
+   2. HEADER & MENU NAVIGASI
+========================================================= */
+.main-header {
+    background-color: var(--primary-color); 
+    color: white;
+    padding: 15px 40px; 
+    border-bottom: 4px solid var(--accent-color); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-logo {
+    height: 60px; 
+    width: auto;
+    object-fit: contain;
+    background-color: #ffffff; 
+    padding: 5px 10px; 
+    border-radius: 8px; 
+    box-shadow: var(--shadow-sm); 
+}
+.header-title {
+    text-align: center;
+    flex-grow: 1; 
+}
+.header-title h1 {
+    margin: 0;
+    font-size: 26px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+.header-title p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: #d1e4f3;
+    font-weight: 500;
+}
+
+.nav-menu {
+    background-color: #343a40;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    box-shadow: var(--shadow-sm);
+}
+.nav-menu a {
+    color: #f2f2f2;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.nav-menu a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.nav-right {
+    margin-left: auto;
+    display: flex;
+}
+
+/* =========================================================
+   3. KOMPONEN: ALERT & BUTTONS (MODERN & SOFT)
+========================================================= */
+.alert { 
+    padding: 12px; 
+    border-radius: 6px; 
+    margin-bottom: 20px; 
+    font-weight: bold; 
+    text-align: center; 
+}
+.alert.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.alert.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+/* KUNCI PERBAIKAN: Tangkap semua tag <button> dan semua class yang mengandung kata "btn" */
+button, [class*="btn-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border: none; /* Menghapus tuntas border abu-abu kaku bawaan browser */
+    border-radius: 6px; /* Sudut sedikit melengkung agar lebih manis/soft */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease; /* Transisi animasi lebih halus */
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Bayangan sangat lembut agar tidak terkesan gelap */
+}
+
+/* Efek Modern saat disorot mouse (Hover) */
+button:hover, [class*="btn-"]:hover {
+    transform: translateY(-2px); /* Tombol sedikit terangkat ke atas */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15); /* Bayangan melebar ke bawah */
+    opacity: 0.95;
+}
+
+/* Modifiers Lebar */
+.btn-full { width: 100%; box-sizing: border-box; }
+
+/* Palet Warna Tombol yang Bersih */
+.btn-blue { background-color: var(--primary-color); } 
+.btn-green { background-color: var(--success-color); } 
+.btn-red { background-color: var(--danger-color); } 
+.btn-yellow { background-color: var(--warning-color); color: #333 !important; } 
+.btn-info { background-color: var(--info-color); } 
+.btn-purple { background-color: var(--purple-color); } 
+
+/* Tombol Outline Khusus (Seperti tombol download CSV) */
+.btn-outline { 
+    background-color: #ffffff; 
+    border: 1px solid var(--primary-color); 
+    color: var(--primary-color) !important; 
+    box-shadow: none; /* Tombol outline tidak perlu bayangan dasar */
+}
+.btn-outline:hover { 
+    background-color: var(--primary-color); 
+    color: #ffffff !important; 
+}
+
+/* Khusus tombol Preview di antrean cetak_ktm.php */
+.btn-cetak {
+    background-color: var(--success-color); /* Menggunakan warna hijau standar */
+    color: #ffffff !important; /* Memastikan teks berwarna putih tegas */
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+/* Khusus tombol aksi kecil di dalam Tabel Riwayat */
+.btn-edit, a.btn-red {
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+/* =========================================================
+   4. FORM & PANELS
+========================================================= */
+.forms-wrapper { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; align-items: stretch; }
+.form-panel { flex: 1; min-width: 300px; padding: 20px; border-radius: 6px; box-sizing: border-box; }
+.form-panel h3 { margin-top: 0; font-size: 16px; color: #495057; border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 15px;}
+
+.panel-foto { background-color: #fff8e1; border-top: 4px solid var(--warning-color); border: 1px solid #ffe082; }
+.panel-csv { background-color: #e9ecef; border-top: 4px solid var(--primary-color); border: 1px solid var(--border-color); }
+.panel-manual { background-color: #f8f9fa; border-top: 4px solid var(--success-color); border: 1px solid var(--border-color); transition: 0.3s; }
+.panel-manual.mode-edit { background-color: #e3f2fd; border-top-color: var(--info-color); }
+
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px; color: #555; }
+.form-control { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-family: inherit; }
+.input-nama { text-transform: capitalize; }
+#hasil_foto_box { text-align: center; min-height: 125px; border: 2px dashed var(--warning-color); background: #fff; border-radius: 6px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px; }
+
+/* =========================================================
+   5. TABEL, SEARCH, & BADGES
+========================================================= */
+.search-box { margin-bottom: 20px; padding: 15px; background-color: #e9ecef; border-radius: 5px; display: flex; gap: 10px; align-items: center; }
+.search-box input[type="text"] { padding: 8px 12px; width: 300px; border: 1px solid #ccc; border-radius: 4px; }
+.form-cetak { display: flex; gap: 10px; align-items: center; margin: 0; justify-content: center; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 14px; }
+th, td { border: 1px solid var(--border-color); padding: 10px; text-align: left; vertical-align: middle; }
+th { background-color: #f8f9fa; font-weight: bold; color: #495057; }
+tr:nth-child(even) { background-color: #fcfcfc; }
+tr:hover { background-color: #f1f3f5; }
+
+.badge { padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; color: white; display: inline-block; text-align: center; }
+.bg-sudah { background-color: var(--success-color); } 
+.bg-belum { background-color: var(--danger-color); }
+.bg-edit { background-color: var(--warning-color); color: #333; }
+
+.pagination { margin-top: 20px; display: flex; gap: 5px; justify-content: center; align-items: center;}
+.pagination a { padding: 8px 12px; border: 1px solid var(--border-color); text-decoration: none; color: var(--primary-color); border-radius: 4px; font-size: 14px;}
+.pagination a.active { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
+.pagination a:hover:not(.active) { background-color: #e9ecef; }
+.info-data { text-align: center; margin-top: 10px; font-size: 13px; color: var(--text-muted); }
+
+/* =========================================================
+   6. FOOTER
+========================================================= */
+.elegant-footer {
+    margin-top: 50px;
+    padding: 25px 20px;
+    background-color: #ffffff;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.02); 
+}
+.footer-content p { margin: 5px 0; color: #555; font-size: 14px; }
+.footer-content strong { color: #003366; font-weight: 600; }
+
+/* =========================================================
+   7. TAMPILAN KARTU (CR80)
+========================================================= */
+.preview-controls {
+    background-color: #f8f9fa;
+    padding: 20px 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+.preview-controls h3 { margin: 0 0 8px 0; font-size: 18px; color: var(--primary-color); }
+.preview-controls p { margin: 0 0 20px 0; font-size: 14px; color: #555; }
+
+.card-container { display: flex; justify-content: center; margin-bottom: 30px; }
+
+/* Ukuran Fisik Kartu CR80 (86mm x 54mm) */
+.id-card {
+    width: 86mm;
+    height: 54mm;
+    position: relative;
+    background-color: #fff;
+    border-radius: 3mm;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: var(--shadow-md);
+}
+
+/* KUNCI PERBAIKAN: Menghilangkan border & background tabel di dalam kartu */
+.id-card .detail-table,
+.id-card .detail-table tr,
+.id-card .detail-table td {
+    border: none !important;
+    background-color: transparent !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.id-card .nama-mhs {
+    font-size: 10.5pt;
+    font-weight: bold;
+    color: #003311;
+    margin: 0 0 0 0 !important;
+    line-height: 1;
+    text-transform: capitalize;
+    border-bottom: none !important; /* Menghapus garis jika menempel pada h2 */
+}
+
+.content-wrapper { position: absolute; top: 13.5mm; left: 6mm; right: 6mm; bottom: 4mm; z-index: 2; display: flex; justify-content: space-between; }
+.left-section { width: 53mm; display: flex; flex-direction: column; justify-content: flex-start; }
+.text-data { flex-grow: 1; }
+
+.detail-table { 
+    font-size: 7.5pt; 
+    color: #003311; 
+    border-collapse: collapse; 
+    line-height: 1.1; 
+    margin-top: 0 !important; /* Menghilangkan margin atas jika ada */
+}
+.detail-table td { padding: 0.5px 0 !important; vertical-align: top; }
+.detail-table td:first-child { width: 1mm; }
+.detail-table td:nth-child(2) { width: 2mm; text-align: center; }
+
+.qr-wrapper { margin-top: auto; }
+.qr-code { width: 1.5cm; height: 1.5cm; background-color: #ffffff; padding: 1mm; box-sizing: border-box; }
+.right-section { display: flex; flex-direction: column; justify-content: flex-start; }
+.foto-mhs { width: 20mm; height: 26mm; object-fit: cover; background-color: #cc0000; border-radius: 2px; }
+
+/* =========================================================
+   8. UTILITY CLASSES (Termasuk Optimasi Print)
+========================================================= */
+/* Tambahkan class "d-none-print" pada elemen HTML yang ingin disembunyikan saat dicetak */
+@media print {
+    body { background-color: white; margin: 0; padding: 0; }
+    .d-none-print { display: none !important; }
+    .container { box-shadow: none; border: none; padding: 0; margin: 0; max-width: 100%; }
+    
+    @page { size: 86mm 54mm; margin: 0; }
+    .card-container { display: block; margin: 0; }
+    .id-card { box-shadow: none; margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* =========================================================
+   9. KELAS UTILITAS & AUDIT TRAIL (Pemisahan Inline CSS)
+========================================================= */
+/* Grid untuk Formulir Sejajar */
+.form-row { display: flex; gap: 10px; margin-bottom: 10px; }
+.form-col-1 { flex: 1; }
+.form-col-2 { flex: 2; }
+
+/* Tampilan Kolom Audit Trail di Tabel */
+.audit-cell { font-size: 11.5px; line-height: 1.5; color: #555; text-align: left; }
+.audit-entry { margin-bottom: 2px; }
+.audit-print { color: var(--primary-color); font-weight: 500; margin-bottom: 2px; }
+.audit-assign { color: var(--success-color); font-weight: 500; }
+.audit-null { color: #ccc; margin-bottom: 2px; }
+
+/* Tampilan Khusus Info Mahasiswa di Scan RFID */
+.rfid-info-box { background: #e3f2fd; padding: 15px; border-radius: 6px; margin-bottom: 15px; border-left: 5px solid var(--info-color); display: none; }
+.rfid-info-title { display: block; color: var(--primary-color); font-size: 13px; margin-bottom: 5px; }
+.rfid-info-name { font-size: 16px; font-weight: bold; color: #333; text-transform: capitalize; }
+.rfid-info-nim { font-size: 14px; color: #555; margin-top: 3px; }
+
+/* Tampilan Layar Hitam untuk Preview Cetak KTM (cetak_ktm.php) */
+body.preview-mode { background-color: #2c3e50; display: flex; flex-direction: column; align-items: center; padding: 30px 0; }
+.modal-overlay { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; }
+.modal-box { background: white; padding: 30px; border-radius: 10px; text-align: center; width: 400px; }
+.scanner-icon { font-size: 50px; margin-bottom: 15px; animation: blinker 1.5s linear infinite; }
+@keyframes blinker { 50% { opacity: 0; } }
